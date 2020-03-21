@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/pyuyu/puppeteer-jest#readme",
   "dependencies": {
+    "node-xlsx": "^0.15.0",
     "puppeteer": "^1.19.0",
     "urlencode": "^1.1.0"
   }
