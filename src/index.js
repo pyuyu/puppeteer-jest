@@ -11,7 +11,7 @@ let browser
     args: ['--no-sandbox', '--disable-dev-shm-usage'],
   });
   let datas = await parseFile()
-  
+
   for(let i = 0; i < 10; i++ ){
     await qcc(datas[i]);  
   }
@@ -49,10 +49,10 @@ async function qcc(data){
         path: `${path.resolve(__dirname,'../files')}/${addrIndex}${name}.png`
     });
   
-    const addr = await page.$$eval('.row .cvlu a', els => els[els.length - 2].innerHTML);
+    const queryAddr = await page.$$eval('.row .cvlu a', els => els[els.length - 2].innerHTML);
     
     //输出 
-    console.log(no, index, name, addrIndex, sendAddr, contact, phone, method, addr, sendAddr.trim() == addr.trim() ? '是' : '否', addrIndex2, ...orthers)
+    console.log(no, index, name, addrIndex, sendAddr, contact, phone, method, queryAddr, sendAddr.trim() == addr.trim() ? '是' : '否', addrIndex2, ...orthers)
     page.close()
   } catch(e){
     console.log(`${no},${index},${name} 操作失败`, e)
