@@ -1,1 +1,1 @@
-# puppeteer-jest
+# puppeteer-query
