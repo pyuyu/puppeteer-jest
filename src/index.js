@@ -12,7 +12,7 @@ let browser
   });
   let datas = await parseFile()
 
-  for(let i = 0; i < Math.min(10, datas.length); i++ ){
+  for(let i = 0; i < Math.min(20, datas.length); i++ ){
     await qcc(datas[i]);  
   }
     
@@ -49,7 +49,7 @@ async function qcc(data){
         path: `${path.resolve(__dirname,'../files')}/${addrIndex}${name}.png`
     });
   
-    const queryAddr = await page.$$eval('.row .cvlu a', els => els[els.length - 2].innerHTML);
+    const queryAddr = await page.$eval('#company-top .content .dcontent .row:nth-child(2)>.cvlu a', el => el.innerHTML);
     
     //输出 
     console.log(no, index, name, addrIndex, sendAddr, contact, phone, method, queryAddr, sendAddr.trim() == queryAddr.trim() ? '是' : '否', addrIndex2, ...orthers)
