@@ -39,7 +39,8 @@ async function qcc(data){
     await page.goto(preloadHref, {timeout:60000, waitUntil: 'domcontentloaded'});
 
     try {
-      let okButtonElement = await page.$('modal-footer .btn.btn-primary');
+      await sleep(1000)
+      let okButtonElement = await page.$('#firstcaseModal .modal-footer .btn.btn-primary');
       await okButtonElement.click()
     } catch (error) {
     }
@@ -58,4 +59,9 @@ async function qcc(data){
     console.log(`${no},${index},${name} 操作失败`, e)
   }
 
+}
+
+
+function sleep (time) {
+  return new Promise((resolve) => setTimeout(resolve, time));
 }
